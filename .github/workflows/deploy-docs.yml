@@ -20,6 +20,9 @@ jobs:
       - name: Install Asciidoctor
         run: gem install asciidoctor
 
+      - name: Create output directory
+        run: mkdir -p output_directory
+
       - name: Convert AsciiDoc to HTML
         run: asciidoctor -D ./output_directory ./doc-samples/demo.adoc
 
