@@ -1,3 +1,0 @@
-This is a doc inside a relative directory.
-
-link:../sandbox.adoc[back to the future]

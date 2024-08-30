@@ -1,3 +1,0 @@
-== AsciiDoc Samples
-
-A repository of AsciiDoc source files for testing AsciiDoc rendering on GitHub.
