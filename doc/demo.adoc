@@ -1,4 +1,5 @@
 = Asciidoctor Demo
+:stem: latexmath
 ////
 Big ol' comment
 
@@ -253,3 +254,101 @@ Here's a reference to the definition of <<another_term>>, in case you forgot it.
 One more thing. Happy documenting!
 
 [[google]]When all else fails, head over to <http://google.com>.
+
+== Math
+
+stem:[\sqrt 4  = 2]
+
+[stem]
+++++
+\sqrt 4 = 2
+++++
+
+.An e-xciting limit with LaTeX!
+[stem]
+++++
+\lim_{n \to \infty}\frac{n}{\sqrt[n]{n!}} = {\large e}
+++++
+
+.A basic square root with AsciiMath
+[asciimath]
+++++
+sqrt(4) = 2
+++++
+
+== Code snippets
+
+[source,cpp]
+----
+int width = 0;
+auto cli = lyra::cli()
+    | lyra::opt( width, "width" )
+        ["-w"]["--width"]
+        ("How wide should it be?");
+----
+
+[source,cpp]
+----
+include::../examples/doc_example1.cpp[tag=doc]
+----
+
+== Tables
+
+[cols="3*"]
+|===
+
+| Help description
+| `parser("Help")`
+| `parser.help("Help")`
+
+| Optional argument
+| `parser.optional()`
+| `parser.optional()`
+
+| Required argument
+| `parser.required()`
+| `parser.required()`
+
+| Range of arguments
+| `parser.cardinality(n,m)`
+| `parser.cardinality(n,m)`
+
+| Value choices
+| `parser.choices(a,b,c)`
+| `parser.choices(a,b,c)`
+
+| Add argument
+| `parser \|= argument`
+| `parser.add_argument(argument)`
+
+| Add option name
+| `option["--name"]`
+| `option.name("--name")`
+
+| Help option description
+| `help.description("Description")`
+| `help.description("Description")`
+
+|===
+
+There are three aspects of the options that can be configured in the
+<<lyra_option_style>>:
+
+`value_delimiters`:: The characters between an option and its value.
+`long_option_prefix` and `long_option_size`:: The characters for long option
+name prefix, and how many repetitions of the character.
+`short_option_prefix` and `short_option_size`:: The characters for short
+option name prefix, and how many repetitions of the character.
+
+To specify the default POSIX style one would specify it with these settings:
+
+[horizontal]
+`value_delimiters`:: `=` and space
+`long_option_prefix`:: `-`
+`long_option_size`:: `2`
+`short_option_prefix`:: `-`
+`short_option_size`:: `1`
+
+There are some built-in option <<lyra_option_style_styles>> defined for common
+cases returned by class methods. But you can define, and use your own using the
+the <<lyra_cli_style>> method. For example:
