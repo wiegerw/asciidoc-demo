@@ -1,5 +1,15 @@
 = Asciidoctor Demo
+:copyright: Copyright 2024 Wieger Wesselink
+:author: Wieger Wesselink
+:email: j.w.wesselink@tue.nl
+:doctype: book
+:toc: left
+:toc2:
 :stem: latexmath
+:icons: font
+:stylesheet: asciidoc.css
+:source-highlighter: rouge
+:rouge-style: base16.solarized
 ////
 Big ol' comment
 
